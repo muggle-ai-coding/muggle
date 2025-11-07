@@ -1,0 +1,121 @@
+---
+interface Props {
+  lang?: 'en' | 'zh';
+}
+
+const { lang = 'en' } = Astro.props;
+const isEnglish = lang === 'en';
+const otherLang = isEnglish ? 'zh' : 'en';
+const otherLangLabel = isEnglish ? '中文' : 'English';
+
+// Get current path
+const currentPath = Astro.url.pathname;
+const isHomePage = currentPath === '/' || currentPath === '/zh/' || currentPath === '/zh';
+
+// Determine the correct base path
+const basePath = isEnglish ? '' : '/zh';
+---
+
+<header>
+  <nav class="container">
+    <div class="nav-content">
+      <a href={isEnglish ? '/' : '/zh/'} class="logo">
+        <span class="emoji">🧙</span>
+        <span class="site-name">
+          {isEnglish ? "Muggle's AI Coding Path" : "麻瓜的 AI 編程之路"}
+        </span>
+      </a>
+      
+      <div class="nav-links">
+        <a href={`${basePath}/blog`}>
+          {isEnglish ? 'All Cases' : '所有案例'}
+        </a>
+        <a href={`${basePath}/core-concepts`}>
+          {isEnglish ? 'Core Concepts' : '核心概念'}
+        </a>
+        <a href={isEnglish ? '/zh' : '/'} class="lang-switch">
+          {otherLangLabel}
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--color-text);
+  }
+
+  .logo:hover {
+    color: var(--color-primary);
+  }
+
+  .emoji {
+    font-size: 1.5rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .nav-links a:hover {
+    color: var(--color-primary);
+  }
+
+  .lang-switch {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    font-size: 0.9rem;
+  }
+
+  .lang-switch:hover {
+    background-color: var(--color-bg-gray);
+    border-color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .site-name {
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .lang-switch {
+      padding: 0.4rem 0.7rem;
+    }
+  }
+</style>
+

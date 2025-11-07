@@ -1,0 +1,248 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="麻瓜的核心概念 - 學習基礎"
+  description="初學者開始自動化所需的基本編程概念"
+  lang="zh"
+>
+  <div class="core-concepts">
+    <div class="container">
+      <div class="page-header">
+        <h1>📚 麻瓜的核心概念</h1>
+        <p>開始 AI 編程所需的基本知識</p>
+      </div>
+
+      <div class="concepts-intro">
+        <p>
+          在深入複雜的自動化之前，了解一些基本概念會很有幫助。
+          別擔心 - 我們會保持簡單實用！
+        </p>
+      </div>
+
+      <div class="concepts-grid">
+        <div class="concept-card">
+          <div class="concept-icon">🌳</div>
+          <h3>Git 與版本控制</h3>
+          <p>
+            學習如何儲存和追蹤程式碼的變更、與他人協作，
+            再也不會遺失你的工作成果。
+          </p>
+          <ul>
+            <li>什麼是 Git 以及為何重要</li>
+            <li>你實際會用到的基本 Git 指令</li>
+            <li>使用 GitHub 儲存和分享程式碼</li>
+            <li>如何使用 AI 協助處理 Git</li>
+          </ul>
+          <span class="coming-soon">即將推出</span>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-icon">🔌</div>
+          <h3>API 基礎</h3>
+          <p>
+            了解不同應用程式如何互相溝通，以及如何使用 API
+            連接你的自動化程式。
+          </p>
+          <ul>
+            <li>用簡單的方式理解 API</li>
+            <li>閱讀 API 文件</li>
+            <li>進行第一次 API 呼叫</li>
+            <li>常見的 API 模式</li>
+          </ul>
+          <span class="coming-soon">即將推出</span>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-icon">🔐</div>
+          <h3>授權與安全性</h3>
+          <p>
+            在讓自動化程式完成工作的同時，
+            保持它們的安全性。
+          </p>
+          <ul>
+            <li>理解 API 金鑰和令牌</li>
+            <li>Google Apps Script 的 OAuth</li>
+            <li>保護機密資訊</li>
+            <li>初學者的最佳實踐</li>
+          </ul>
+          <span class="coming-soon">即將推出</span>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-icon">🤖</div>
+          <h3>使用 AI 作為編程助手</h3>
+          <p>
+            學習如何有效地與 AI 溝通，以撰寫、除錯
+            和改進你的程式碼。
+          </p>
+          <ul>
+            <li>撰寫良好的編程提示</li>
+            <li>理解 AI 生成的程式碼</li>
+            <li>使用 AI 協助除錯</li>
+            <li>何時該（和不該）信任 AI</li>
+          </ul>
+          <span class="coming-soon">即將推出</span>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-icon">📝</div>
+          <h3>處理資料</h3>
+          <p>
+            學習讀取、處理和轉換資料 - 這是大多數
+            自動化任務的核心。
+          </p>
+          <ul>
+            <li>JSON 和資料格式</li>
+            <li>讀取和寫入檔案</li>
+            <li>處理試算表資料</li>
+            <li>基本資料轉換</li>
+          </ul>
+          <span class="coming-soon">即將推出</span>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-icon">⚡</div>
+          <h3>錯誤處理與除錯</h3>
+          <p>
+            遇到問題不要慌！學習如何找到並修正
+            自動化程式中的錯誤。
+          </p>
+          <ul>
+            <li>閱讀錯誤訊息</li>
+            <li>使用控制台日誌</li>
+            <li>常見錯誤及修正方法</li>
+            <li>測試你的自動化程式</li>
+          </ul>
+          <span class="coming-soon">即將推出</span>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h2>準備好開始了嗎？</h2>
+        <p>不要等到理解所有東西才開始 - 邊做邊學是最好的方法！</p>
+        <a href="/zh/blog" class="btn btn-primary">從教學開始</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .core-concepts {
+    padding: 3rem 0;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .page-header p {
+    color: var(--color-text-light);
+    font-size: 1.125rem;
+  }
+
+  .concepts-intro {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+  }
+
+  .concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .concept-card {
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .concept-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .concept-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .concept-card p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .concept-card ul {
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+
+  .concept-card li {
+    padding: 0.5rem 0;
+    color: var(--color-text);
+    font-size: 0.95rem;
+  }
+
+  .concept-card li::before {
+    content: '✓ ';
+    color: var(--color-primary);
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+
+  .coming-soon {
+    display: inline-block;
+    background: var(--color-bg-gray);
+    color: var(--color-text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem;
+    background: var(--color-bg-gray);
+    border-radius: 1rem;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: var(--color-text-light);
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .concepts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+

@@ -1,0 +1,113 @@
+---
+interface Props {
+  emoji: string;
+  title: string;
+  description: string;
+  examples: string[];
+  link: string;
+  lang?: 'en' | 'zh';
+}
+
+const { emoji, title, description, examples, link, lang = 'en' } = Astro.props;
+const isEnglish = lang === 'en';
+const casesText = isEnglish ? '3 Cases' : '3 個案例';
+---
+
+<div class="category-card">
+  <div class="card-emoji">{emoji}</div>
+  <h3>{title}</h3>
+  <p class="description">{description}</p>
+  
+  <ul class="examples">
+    {examples.map(example => (
+      <li>{example}</li>
+    ))}
+  </ul>
+  
+  <a href={link} class="card-link">
+    {casesText} →
+  </a>
+</div>
+
+<style>
+  .category-card {
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .card-emoji {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+  }
+
+  .description {
+    color: var(--color-text-light);
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .examples {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .examples li {
+    padding: 0.5rem 0;
+    color: var(--color-text);
+    font-size: 0.9rem;
+  }
+
+  .examples li::before {
+    content: '✓ ';
+    color: var(--color-primary);
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: auto;
+  }
+
+  .card-link:hover {
+    color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 768px) {
+    .category-card {
+      padding: 1.5rem;
+    }
+
+    .card-emoji {
+      font-size: 2.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+

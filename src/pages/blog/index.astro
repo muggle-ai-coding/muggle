@@ -1,0 +1,211 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Get all English blog posts
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.lang === 'en';
+});
+
+// Sort posts by date (newest first)
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Get category from URL parameter
+const url = Astro.url;
+const categoryFilter = url.searchParams.get('category');
+
+// Filter posts by category if specified
+const filteredPosts = categoryFilter
+  ? sortedPosts.filter(post => post.data.category === categoryFilter)
+  : sortedPosts;
+
+// Category display names
+const categoryNames: Record<string, string> = {
+  cloud: '☁️ Cloud Automation',
+  desktop: '💻 Desktop Automation',
+  web: '🌐 Web Development',
+  'core-concepts': '📚 Core Concepts',
+  'more-cases': '💡 More Cases'
+};
+---
+
+<BaseLayout 
+  title="All Cases - Muggle's AI Coding Path"
+  description="Browse all automation tutorials and cases"
+  lang="en"
+>
+  <div class="blog-list">
+    <div class="container">
+      <div class="page-header">
+        <h1>
+          {categoryFilter ? categoryNames[categoryFilter] : 'All Cases'}
+        </h1>
+        <p>
+          {categoryFilter 
+            ? 'Browse tutorials in this category'
+            : 'Browse all automation tutorials and examples'
+          }
+        </p>
+      </div>
+
+      {categoryFilter && (
+        <div class="filter-info">
+          <a href="/blog" class="clear-filter">
+            ← Show all categories
+          </a>
+        </div>
+      )}
+
+      {filteredPosts.length === 0 ? (
+        <div class="no-posts">
+          <p>No posts found in this category yet.</p>
+          <a href="/blog" class="btn btn-primary">View all posts</a>
+        </div>
+      ) : (
+        <div class="posts-grid">
+          {filteredPosts.map((post) => (
+            <article class="post-card">
+              <div class="post-category">
+                {categoryNames[post.data.category]}
+              </div>
+              <h2>
+                <a href={`/blog/${post.slug}`}>
+                  {post.data.title}
+                </a>
+              </h2>
+              <p class="post-description">
+                {post.data.description}
+              </p>
+              <div class="post-meta">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </time>
+              </div>
+              <a href={`/blog/${post.slug}`} class="read-more">
+                Read more →
+              </a>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .blog-list {
+    padding: 3rem 0;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .page-header p {
+    color: var(--color-text-light);
+    font-size: 1.125rem;
+  }
+
+  .filter-info {
+    margin-bottom: 2rem;
+  }
+
+  .clear-filter {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .post-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .post-category {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-card h2 a {
+    color: var(--color-text);
+  }
+
+  .post-card h2 a:hover {
+    color: var(--color-primary);
+  }
+
+  .post-description {
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .post-meta {
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .read-more {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-top: auto;
+  }
+
+  .no-posts {
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .no-posts p {
+    color: var(--color-text-light);
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+

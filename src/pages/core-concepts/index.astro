@@ -1,0 +1,248 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Core Concepts for Muggles - Learn the Essentials"
+  description="Essential coding concepts for beginners to start automating"
+  lang="en"
+>
+  <div class="core-concepts">
+    <div class="container">
+      <div class="page-header">
+        <h1>📚 Core Concepts for Muggles</h1>
+        <p>Essential knowledge to get started with AI coding</p>
+      </div>
+
+      <div class="concepts-intro">
+        <p>
+          Before diving into complex automation, it's helpful to understand some fundamental concepts.
+          Don't worry - we'll keep it simple and practical!
+        </p>
+      </div>
+
+      <div class="concepts-grid">
+        <div class="concept-card">
+          <div class="concept-icon">🌳</div>
+          <h3>Git & Version Control</h3>
+          <p>
+            Learn how to save and track changes to your code, collaborate with others,
+            and never lose your work again.
+          </p>
+          <ul>
+            <li>What is Git and why it matters</li>
+            <li>Basic Git commands you'll actually use</li>
+            <li>GitHub for storing and sharing code</li>
+            <li>How to use AI to help with Git</li>
+          </ul>
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-icon">🔌</div>
+          <h3>API Basics</h3>
+          <p>
+            Understand how different applications talk to each other and how you
+            can use APIs to connect your automations.
+          </p>
+          <ul>
+            <li>What is an API in simple terms</li>
+            <li>Reading API documentation</li>
+            <li>Making your first API call</li>
+            <li>Common API patterns</li>
+          </ul>
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-icon">🔐</div>
+          <h3>Authorization & Security</h3>
+          <p>
+            Keep your automations secure while giving them the access they need
+            to do their job.
+          </p>
+          <ul>
+            <li>Understanding API keys and tokens</li>
+            <li>OAuth for Google Apps Script</li>
+            <li>Keeping secrets secure</li>
+            <li>Best practices for beginners</li>
+          </ul>
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-icon">🤖</div>
+          <h3>Using AI as Your Coding Assistant</h3>
+          <p>
+            Learn how to effectively communicate with AI to write, debug,
+            and improve your code.
+          </p>
+          <ul>
+            <li>Writing good prompts for coding</li>
+            <li>Understanding AI-generated code</li>
+            <li>Debugging with AI help</li>
+            <li>When to trust (and not trust) AI</li>
+          </ul>
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-icon">📝</div>
+          <h3>Working with Data</h3>
+          <p>
+            Learn to read, process, and transform data - the heart of most
+            automation tasks.
+          </p>
+          <ul>
+            <li>JSON and data formats</li>
+            <li>Reading and writing files</li>
+            <li>Processing spreadsheet data</li>
+            <li>Basic data transformations</li>
+          </ul>
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+
+        <div class="concept-card">
+          <div class="concept-icon">⚡</div>
+          <h3>Error Handling & Debugging</h3>
+          <p>
+            Don't panic when things go wrong! Learn how to find and fix errors
+            in your automations.
+          </p>
+          <ul>
+            <li>Reading error messages</li>
+            <li>Using console logs</li>
+            <li>Common mistakes and how to fix them</li>
+            <li>Testing your automations</li>
+          </ul>
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h2>Ready to Start?</h2>
+        <p>Don't wait until you understand everything - learning by doing is the best approach!</p>
+        <a href="/blog" class="btn btn-primary">Start with a Tutorial</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .core-concepts {
+    padding: 3rem 0;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .page-header p {
+    color: var(--color-text-light);
+    font-size: 1.125rem;
+  }
+
+  .concepts-intro {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+  }
+
+  .concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .concept-card {
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .concept-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .concept-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .concept-card p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .concept-card ul {
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+
+  .concept-card li {
+    padding: 0.5rem 0;
+    color: var(--color-text);
+    font-size: 0.95rem;
+  }
+
+  .concept-card li::before {
+    content: '✓ ';
+    color: var(--color-primary);
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+
+  .coming-soon {
+    display: inline-block;
+    background: var(--color-bg-gray);
+    color: var(--color-text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem;
+    background: var(--color-bg-gray);
+    border-radius: 1rem;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: var(--color-text-light);
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .concepts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+
