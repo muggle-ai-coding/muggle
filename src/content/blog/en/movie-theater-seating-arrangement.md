@@ -6,7 +6,6 @@ category: "cloud"
 lang: "en"
 featured: true
 ---
-# Movie Theater Seating Arrangement
 
 ### The Challenge
 
