@@ -109,7 +109,7 @@ git init
 git add .
 git commit -m "Initial commit"
 git branch -M main
-git remote add origin https://github.com/muggleaicoding-hash/muggle.git
+git remote add origin https://github.com/muggle-ai-coding/muggle.git
 git push -u origin main
 ```
 
@@ -175,5 +175,6 @@ MIT
 ---
 
 **建立日期：** 2025-11-07  
-**最後更新：** 2025-11-07
+**最後更新：** 2025-11-07  
+**網站狀態：** 正在部署中
 

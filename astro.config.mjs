@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://muggleaicoding-hash.github.io',
+  site: 'https://muggle-ai-coding.github.io',
   base: '/muggle',
   integrations: [mdx(), sitemap()],
   markdown: {
