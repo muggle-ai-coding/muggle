@@ -32,16 +32,6 @@ const formattedUpdatedDate = updatedDate
       <div class="post-header">
         <div class="category-badge">{category}</div>
         <h1>{title}</h1>
-        <div class="post-meta">
-          <time datetime={pubDate.toISOString()}>
-            {isEnglish ? 'Published' : '發布於'}: {formattedDate}
-          </time>
-          {formattedUpdatedDate && (
-            <time datetime={updatedDate?.toISOString()}>
-              · {isEnglish ? 'Updated' : '更新於'}: {formattedUpdatedDate}
-            </time>
-          )}
-        </div>
       </div>
 
       <div class="post-content">
